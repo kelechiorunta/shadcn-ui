@@ -5,6 +5,9 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import { Toaster } from "@/components/ui/toaster";
+import Sidebar from "@/components/sidebar";
+import { Nav } from "@/components/ui/nav";
+import Sidenav from "@/components/Sidenav";
 
 
 // Define custom Poppins font with specific weight and subset
@@ -53,7 +56,11 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             <Navbar/>
-            {children}
+            <main className='flex'> 
+              {/* <div className='w-[20%] border-2'><Sidebar/></div> */}
+             <Sidenav/>
+              <div className='w-[90%]'>{children}</div>
+            </main>
             <Toaster/>
           </ThemeProvider>
       </body>

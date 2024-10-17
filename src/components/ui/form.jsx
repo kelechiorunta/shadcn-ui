@@ -5,13 +5,6 @@ import { Controller, FormProvider, useFormContext } from "react-hook-form";
 
 import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
-import { z } from "zod"
-
-const formSchema = z.object({
-  username: z.string().min(2, {message: "Username must be more than three characters"}).max(50),
-  email: z.string().email({message: 'Please enter a valid email'})
-})
-
 
 const Form = FormProvider
 

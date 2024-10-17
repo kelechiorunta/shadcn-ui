@@ -1,0 +1,99 @@
+'use client'
+import React, { useState } from 'react'
+import { Nav } from './ui/nav'
+import {
+    AlertCircle,
+    Archive,
+    ArchiveX,
+    File,
+    Inbox,
+    MessagesSquare,
+    Search,
+    Send,
+    ShoppingCart,
+    LayoutDashboard,
+    UsersRound,
+    Settings,
+    Trash2,
+    Users2,
+    ChevronRight,
+  } from "lucide-react"
+import { Button } from './ui/button'
+import {
+    useWindowSize,
+    useWindowWidth,
+    useWindowHeight,
+  } from '@react-hook/window-size'
+
+export default function Sidenav() {
+    const onlyWidth = useWindowWidth()
+    const [isCollapsed, setIsCollapsed] = useState(onlyWidth && onlyWidth < 1026)
+    
+    // const mobileWidth = (onlyWidth && onlyWidth < 1026)
+
+
+    function toggleSidebar(){
+        setIsCollapsed(!isCollapsed)
+    }
+  return (
+    <div className='relative min-w-[80px] border-r pr-5 pb-10 pt-24'>
+        {/* <p>width-{onlyWidth}</p> */}
+        {!(onlyWidth && (onlyWidth < 1020)) && (
+        <div className='absolute right-[-20px] top-7'>
+            <Button 
+                onClick={toggleSidebar}
+                variant={'secondary'} 
+                className='rounded-full p-2'>
+                <ChevronRight/>
+            </Button>
+        </div>
+        )}
+         <Nav
+            isCollapsed={(onlyWidth && (onlyWidth < 1020))? true : isCollapsed}
+            navlinks={[
+              {
+                title: "Dashboard",
+                label: "",
+                icon: LayoutDashboard,
+                variant: "ghost" || "default",
+                href:"/admin/dashboard",
+              },
+              {
+                title: "User Management",
+                label: "",
+                icon: UsersRound,
+                variant: "ghost",
+                href:"/admin/users",
+              },
+              {
+                title: "Transaction Management",
+                label: "",
+                icon: ShoppingCart,
+                variant: "ghost",
+                href:"/admin/transactions",
+              },
+              {
+                title: "Analytics",
+                label: "",
+                icon: Settings,
+                variant: "ghost",
+                href:"/admin/analytics"
+              },
+              {
+                title: "Trash",
+                label: "",
+                icon: Trash2,
+                variant: "ghost",
+                href:"/admin/analytics"
+              },
+              {
+                title: "Archive",
+                label: "",
+                icon: Archive,
+                variant: "ghost",
+              },
+            ]}
+          />
+    </div>
+  )
+}

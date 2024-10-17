@@ -6,6 +6,7 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { useToast } from "@/hooks/use-toast"
+import { ToastAction } from "@/components/ui/toast"
 
 import {
     Form,
@@ -19,7 +20,7 @@ import {
   import { Input } from "@/components/ui/input"
 
 const formSchema = z.object({
-  username: z.string().min(3, {message: "Username must be more than three characters"}).max(50),
+  username: z.string().min(3, {message: "Username must be more than three characters"}).max(50, {message: "Username must not be more than fifty characters"}),
   email: z.string().email({message: 'Please enter a valid email'})
 })
 
@@ -44,7 +45,9 @@ export default function SubscriptionForm() {
     console.log(values)
     toast({
         title: "User Saved Successfully",
-        description: `Username: ${values.username}, Email: ${values.email}`,
+        description: `Username: ${values.username},
+         Email: ${values.email}`,
+         action: <ToastAction altText="Try again">Exit</ToastAction>,
     })
     /** Reset the fields after a successful entry */
     form.reset()

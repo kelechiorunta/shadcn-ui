@@ -1,3 +1,4 @@
+import Sidebar from "@/components/sidebar";
 import Subscribers from "@/components/Subscribers";
 import SubscriptionForm from "@/components/SubscriptionForm";
 import Image from "next/image";
@@ -5,6 +6,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div classNam='container max-w-[80%] flex flex-col md:flex-row justify-between p-4 mt-8'>
+      {/* <Sidebar/> */}
       <SubscriptionForm/>
       <Subscribers/>
     </div>
