@@ -102,13 +102,15 @@ const [rowSelection, setRowSelection] = useState({})
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <Table>
-        <TableHeader>
+      <Table className=" border-collapse text-ellipsis first-line:w-full table-fixed overflow-hidden">
+        <TableHeader className="hidden sm:table-header-group">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id}>
+                  <TableHead
+                  className="px-2 py-[0.625em] text-center uppercase text-[0.85em] tracking-wider" 
+                  key={header.id}>
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -125,11 +127,14 @@ const [rowSelection, setRowSelection] = useState({})
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
+                className=" block sm:table-row mb-[0.625em] sm:mb-0"
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
+                  <TableCell
+                    className="text-ellipsis block sm:table-cell px-2 py-[0.625em] text-left sm:text-center border-b last:border-b-0 sm:border-0 before:content-[attr(data-label)] before:font-bold before:uppercase before:float-left before:sm:hidden"
+                    key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
