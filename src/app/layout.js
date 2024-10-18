@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
             <main className='flex'> 
               {/* <div className='w-[20%] border-2'><Sidebar/></div> */}
              <Sidenav/>
-              <div className='w-[90%]'>{children}</div>
+              <div className='w-[90%] border-2 flex items-start'>{children}</div>
             </main>
             <Toaster/>
           </ThemeProvider>

@@ -17,6 +17,8 @@ import {
     Trash2,
     Users2,
     ChevronRight,
+    UserRoundX,
+    ChevronLeft,
   } from "lucide-react"
 import { Button } from './ui/button'
 import {
@@ -27,7 +29,7 @@ import {
 
 export default function Sidenav() {
     const onlyWidth = useWindowWidth()
-    const [isCollapsed, setIsCollapsed] = useState(onlyWidth && onlyWidth < 1026)
+    const [isCollapsed, setIsCollapsed] = useState(onlyWidth && onlyWidth < 1180)
     
     // const mobileWidth = (onlyWidth && onlyWidth < 1026)
 
@@ -38,18 +40,18 @@ export default function Sidenav() {
   return (
     <div className='relative min-w-[80px] border-r pr-5 pb-10 pt-24'>
         {/* <p>width-{onlyWidth}</p> */}
-        {!(onlyWidth && (onlyWidth < 1020)) && (
+        {!(onlyWidth && (onlyWidth < 1180)) && (
         <div className='absolute right-[-20px] top-7'>
             <Button 
                 onClick={toggleSidebar}
                 variant={'secondary'} 
                 className='rounded-full p-2'>
-                <ChevronRight/>
+                {isCollapsed? <ChevronRight/> : <ChevronLeft/>}
             </Button>
         </div>
         )}
          <Nav
-            isCollapsed={(onlyWidth && (onlyWidth < 1020))? true : isCollapsed}
+            isCollapsed={(onlyWidth && (onlyWidth < 1180))? true : isCollapsed}
             navlinks={[
               {
                 title: "Dashboard",
@@ -70,7 +72,7 @@ export default function Sidenav() {
                 label: "",
                 icon: ShoppingCart,
                 variant: "ghost",
-                href:"/admin/transactions",
+                href:"/admin/payments",
               },
               {
                 title: "Analytics",
@@ -80,11 +82,11 @@ export default function Sidenav() {
                 href:"/admin/analytics"
               },
               {
-                title: "Trash",
+                title: "Coupon",
                 label: "",
-                icon: Trash2,
+                icon: UserRoundX,
                 variant: "ghost",
-                href:"/admin/analytics"
+                href:"/admin/coupon"
               },
               {
                 title: "Archive",

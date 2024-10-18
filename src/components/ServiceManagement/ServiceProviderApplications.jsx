@@ -43,7 +43,7 @@ export default function ServiceProviderApplications() {
 
   return (
     <div className="p-4 bg-white shadow rounded-lg mt-4">
-      <h2 className="text-2xl px-4 py-4 font-semibold text-gray-700">Service Provider Applications</h2>
+      {/* <h2 className="text-2xl px-4 py-4 font-semibold text-gray-700">Service Provider Applications</h2> */}
       <Table>
         <TableHeader>
           <TableRow>
