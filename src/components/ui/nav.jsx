@@ -20,11 +20,11 @@ export function Nav({ navlinks, isCollapsed }) {
         data-collapsed={isCollapsed}
         // Added transition and max-width changes for smooth effect
         className={cn(
-          " group flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ease-in-out",
+          " group flex flex-col items-center overflow-hidden transition-all duration-300 ease-in-out",
           isCollapsed ? "w-16" : "w-64" // Adjust width for collapse/expand
         )}
       >
-        <nav className="grid gap-1 px-2 transition-all duration-300 ease-in-out">
+        <nav className={cn("grid gap-1 px-2 transition-all duration-300 ease-in-out", isCollapsed && 'gap-0')}>
           {navlinks.map((link, index) => {
             const IconComponent = link.icon
             if (!IconComponent) {
@@ -39,7 +39,7 @@ export function Nav({ navlinks, isCollapsed }) {
                     href={link.href || "#"}
                     className={cn(
                       buttonVariants({ variant: pathname === link.href ? "default" : link.variant }),
-                      "w-16 flex items-center justify-center transition-all duration-300"
+                      "w-14 flex items-center transition-all duration-300"
                     )}
                   >
                     <IconComponent className="h-5 w-5" />
