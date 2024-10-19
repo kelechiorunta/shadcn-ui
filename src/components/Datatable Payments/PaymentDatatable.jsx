@@ -103,7 +103,7 @@ const [rowSelection, setRowSelection] = useState({})
         </DropdownMenu>
       </div>
       <Table className=" border-collapse text-ellipsis first-line:w-full table-fixed overflow-hidden">
-        <TableHeader className="hidden sm:table-header-group">
+        <TableHeader className="hidden md:table-header-group">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
@@ -127,13 +127,13 @@ const [rowSelection, setRowSelection] = useState({})
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
-                className=" block sm:table-row mb-[0.625em] sm:mb-0"
+                className=" block md:table-row mb-[0.625em] md:mb-0"
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
-                    className="text-ellipsis block sm:table-cell px-2 py-[0.625em] text-left sm:text-center border-b last:border-b-0 sm:border-0 before:content-[attr(data-label)] before:font-bold before:uppercase before:float-left before:sm:hidden"
+                    className="text-ellipsis block md:table-cell px-2 py-[0.625em] text-left md:text-center border-b last:border-b-0 md:border-0 before:content-[attr(data-label)] before:font-bold before:uppercase before:float-left before:md:hidden"
                     key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>

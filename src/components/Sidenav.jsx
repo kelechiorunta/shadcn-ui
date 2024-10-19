@@ -38,7 +38,7 @@ export default function Sidenav() {
         setIsCollapsed(!isCollapsed)
     }
   return (
-    <div className='relative min-w-[80px] border-r pr-5 pb-10 pt-24'>
+    <div className='relative min-w-[80px] border-r pr-5 pb-10 pt-[88px]'>
         {/* <p>width-{onlyWidth}</p> */}
         {!(onlyWidth && (onlyWidth < 1180)) && (
         <div className='absolute right-[-20px] top-7'>

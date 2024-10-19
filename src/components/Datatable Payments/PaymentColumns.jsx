@@ -21,7 +21,7 @@ import { set } from 'react-hook-form'
 
 // const [toggle, setToggle] = useState(false)
 
-const handdleToggle = (index) => {
+const handleToggle = (index) => {
     console.log(index)
     // index && setToggle(!toggle)
 }
@@ -72,7 +72,7 @@ export const columns = [
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>View customer</DropdownMenuItem>
                 <DropdownMenuItem>View payment details</DropdownMenuItem>
-                <DropdownMenuItem onClick={()=>handdleToggle(payment.id)}>Toggle payment Status</DropdownMenuItem>
+                <DropdownMenuItem onClick={()=>handleToggle(payment.id)}>Toggle payment Status</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           )
@@ -81,15 +81,6 @@ export const columns = [
   {
     accessorKey: "status",
     header: "Status",
-    // header: ({ column }) => {
-    //          <Button
-    //             variant="ghost"
-    //             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-    //         >
-    //             Status
-    //             <ArrowUpDown className="ml-2 h-4 w-4" />
-    //         </Button> 
-    // },
 },
   {
     accessorKey: "email",
@@ -97,13 +88,6 @@ export const columns = [
         return (
             <>
             <PaymentColumnHeader column={column} title="Email" />
-            {/* <Button
-                variant="ghost"
-                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            >
-                Email
-                <ArrowUpDown className="ml-2 h-4 w-4" />
-            </Button> */}
             </>
         )
       },
