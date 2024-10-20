@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div classNam='container max-w-[80%] flex flex-col md:flex-row justify-between p-4 mt-8'>
       {/* <Sidebar/> */}
-      <SubscriptionForm/>
-      <Subscribers/>
+      {/* <SubscriptionForm/>
+      <Subscribers/> */}
     </div>
   );
 }
